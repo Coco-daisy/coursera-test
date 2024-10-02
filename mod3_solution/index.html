@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Food, LLC</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-	<h1>Our Menu</h1>
+	<header>
+		<nav id="header-nav" class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<div class="navbar-brand">
+						<a href="index.html" class="pull-left"><h1>Food, LLC</h1></a>
+					</div>
+					<button type="button" class="navbar-toggle collaosed" data-toggle="collapse" data-target="#collapsable-nav" aria-expand="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div id="collapsable-nav" class="collapse navbar-collapse">
+					<ul id="nav-list" class="nav navbar-nav navbar-right">
+						<li class="visible-xs active">
+							<a href="#chicken" class="visible-xs">Chicken</a> <!-- Visible xs only --> 
+						</li>
+						<li>
+							<a href="#beef" class="visible-xs">Beef</a> <!-- Visible xs only -->
+						</li>
+						<li>
+							<a href="#sushi" class="visible-xs">Sushi</a> <!-- Visible xs only -->
+						</li>
+					</ul> <!-- #nav-list -->
+				</div> <!-- .collapse .navbar-collapse -->
+			</div> <!-- .container -->
+		</nav> <!-- #header-nav -->
+	</header>
+
+	<div id="main-content" class="container-fluid">
+		<h2 id="title" class="text-center">Our Menu</h2>
+		<section id="menu-tiles" class="row">
+			<div id="tile1" class="container-fruid col-md-12 col-sm-12 col-xs-12">
+				<h3 id="chicken" class="text-center">Chicken</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet arcu ac justo blandit lacinia nec eu nulla. Vestibulum id pharetra augue, et eleifend massa. Suspendisse magna augue, mattis vel dolor ut, porta ultricies lorem. Proin interdum id nisi quis varius. Sed auctor porttitor nunc, vel laoreet ligula suscipit condimentum. Nam dictum auctor erat ac eleifend. Nulla mattis orci turpis, et ultricies neque facilisis vitae. Phasellus porta mi non arcu ultrices dapibus. Mauris vulputate vel augue eget molestie. Phasellus sit amet sem eleifend nisl dictum placerat. Vivamus nibh lacus, hendrerit vitae semper sed, scelerisque sed nulla. Suspendisse sed justo non quam facilisis posuere in non quam. In eget odio eros. Curabitur porttitor imperdiet nunc, a auctor quam. Donec dictum ante lacus, molestie cursus ipsum feugiat eget.</p>
+			</div>
+			<div id="tile2" class="col-md-12 col-sm-12 col-xs-12">
+				<h3 id="beef" class="text-center">Beef</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet arcu ac justo blandit lacinia nec eu nulla. Vestibulum id pharetra augue, et eleifend massa. Suspendisse magna augue, mattis vel dolor ut, porta ultricies lorem. Proin interdum id nisi quis varius. Sed auctor porttitor nunc, vel laoreet ligula suscipit condimentum. Nam dictum auctor erat ac eleifend. Nulla mattis orci turpis, et ultricies neque facilisis vitae. Phasellus porta mi non arcu ultrices dapibus. Mauris vulputate vel augue eget molestie. Phasellus sit amet sem eleifend nisl dictum placerat. Vivamus nibh lacus, hendrerit vitae semper sed, scelerisque sed nulla. Suspendisse sed justo non quam facilisis posuere in non quam. In eget odio eros. Curabitur porttitor imperdiet nunc, a auctor quam. Donec dictum ante lacus, molestie cursus ipsum feugiat eget.</p>
+			</div>
+			<div id="tile3" class="col-md-12 col-sm-12 col-xs-12">
+				<h3 id="sushi" class="text-center">Sushi</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet arcu ac justo blandit lacinia nec eu nulla. Vestibulum id pharetra augue, et eleifend massa. Suspendisse magna augue, mattis vel dolor ut, porta ultricies lorem. Proin interdum id nisi quis varius. Sed auctor porttitor nunc, vel laoreet ligula suscipit condimentum. Nam dictum auctor erat ac eleifend. Nulla mattis orci turpis, et ultricies neque facilisis vitae. Phasellus porta mi non arcu ultrices dapibus. Mauris vulputate vel augue eget molestie. Phasellus sit amet sem eleifend nisl dictum placerat. Vivamus nibh lacus, hendrerit vitae semper sed, scelerisque sed nulla. Suspendisse sed justo non quam facilisis posuere in non quam. In eget odio eros. Curabitur porttitor imperdiet nunc, a auctor quam. Donec dictum ante lacus, molestie cursus ipsum feugiat eget.</p>
+			</div>
+		</section>
+	</div>
+
+	<!-- jQuery (Bootstrap JS plugins depend on it) -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+  	<script src="js/script.js"></script>
 </body>
 </html>

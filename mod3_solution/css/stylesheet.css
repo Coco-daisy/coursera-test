@@ -1,0 +1,130 @@
+html {font-size: 16px;}
+body {font-family: "Oxygen", sans-serif;}
+
+/* HEADER */
+#header-nav {
+	background-color: teal;
+	border-radius: 0;
+	padding-bottom: 15px;
+	height: 75px;
+}
+.navbar-brand {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border: 1px solid black;
+}
+.navbar-brand h1 { /* Company name */
+	color: #fff;
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+#nav-list {
+	margin-top: 10px;
+}
+#nav-list a {
+	color: white;
+	text-align: center;
+}
+#nav-list a:hover {
+	background: #CCCCCC;
+}
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+	border: 1px solid white;
+}
+.navbar-header button.navbar-toggle {
+	margin-top: 20px;
+}
+/* END HEADER */
+
+/* HOME PAGE */
+#main-content {
+	border: 3px solid black;
+}
+#title { /* Our Menu */
+	font-size: 1.75rem;
+	font-weight: bold;
+}
+#menu-tiles {
+	height: auto;
+	width: 100%;
+	margin-bottom: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid black;
+}
+#tile1, #tile2, #tile3 {
+	background-color: tan;
+	margin-bottom: 15px;
+}
+/* END HOME PAGE */
+
+/***********************************/
+
+/* Large device only */
+@media (min-width: 1200px) {
+	/* HEADER */
+	/* END HEADER */
+}
+/* Medium device only */
+@media (min-width: 992px) and (max-width: 1199px) {
+	/* HEADER */
+	/* END HEADER */
+}
+/* Small device only */
+@media (min-width: 768px) and (max-width: 991px) {
+	/* HEADER */
+	/* END HEADER */
+}
+/* Extra Small device only */
+@media (max-width: 767px) {
+	/* HEADER */
+	.navbar-brand {
+		padding-top: 10px;
+	}
+	.navbar-brand h1 { /* Company name */
+		padding-top: 10px;
+	}
+	#collapsable-nav a { /* Collapsed nav menu text: Chicken, Beef, Sushi */
+		font-size: 1.2em;
+	}
+	/* END HEADER */
+	/* HOME PAGE */
+	#menu-tiles {
+		width: 360px;
+		margin: 0 auto 15px;
+	}
+	/* END HOME PAGE */
+}
+/* Super Extra Small device only */
+@media (max-width: 479px) {
+	/* HEADER */
+	.navbar-brand h1 { /* Company name */
+		padding-top: 5px;
+		font-size: 6vw; /* Responsive font-size unit: 1vw = 1% of viewport width */
+	}
+	/* END HEADER */
+	/* HOME PAGE */
+	#menu-tiles {
+		width: 280px;
+		margin: 0 auto 15pz;
+	}
+	.col-xxs-12 {
+		position: relative;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+		float: left;
+		width: 100%;
+	}
+	#title {
+		font-size: 6vW;
+	}
+	#chicken, #beef, #sushi {
+		font-size: 5vw;
+	}
+	/* END HOME PAGE */
+}
