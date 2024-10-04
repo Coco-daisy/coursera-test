@@ -5,44 +5,62 @@ body {font-family: "Oxygen", sans-serif;}
 #header-nav {
 	background-color: teal;
 	border-radius: 0;
-	padding-bottom: 15px;
 	height: 75px;
 }
 .navbar-brand {
-	margin-top: 0px;
-	margin-bottom: 0px;
+	padding: 0;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 80%;
 	border: 1px solid black;
 }
 .navbar-brand h1 { /* Company name */
-	color: #fff;
+	color: white;
 	font-size: 1.8rem;
 	font-weight: bold;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	padding-top: 0px;
 }
-#nav-list {
-	margin-top: 10px;
+
+#nav-list { /* Entire dropdown menu */
+	position: relative;
+	background-color: teal;
+	margin-top: 0px;
+	opacity: 1;
 }
 #nav-list a {
+	background-color: teal;
 	color: white;
 	text-align: center;
+	border-top: 1px solid white;
 }
 #nav-list a:hover {
-	background: #CCCCCC;
+	background: tan;
 }
 .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
-	border: 1px solid white;
+	border: 1px solid tan;
 }
 .navbar-header button.navbar-toggle {
-	margin-top: 20px;
+	clear: both;
+	margin-top: -55px;
+}
+.navbar-nav {
+	position: static;
 }
 /* END HEADER */
 
 /* HOME PAGE */
 #main-content {
+	margin-right: auto;
+	margin-left: auto;
 	border: 3px solid black;
 }
-#title { /* Our Menu */
+#wrapper {
+	border: 1px solid tan;
+	position: static;
+}
+.container .text-center { /* Our Menu */
 	font-size: 1.75rem;
 	font-weight: bold;
 }
@@ -58,73 +76,86 @@ body {font-family: "Oxygen", sans-serif;}
 }
 #tile1, #tile2, #tile3 {
 	background-color: tan;
+	padding-right: 50px;
+	padding-left: 50px;
 	margin-bottom: 15px;
+}
+.container h2 {
+	font-size: 1.75rem;
+	margin-bottom: 30px;
+}
+#chicken, #beef, #sushi {
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: white;
+}
+.container p {
+	font-size: 1rem;
+	padding-bottom: 15px;
 }
 /* END HOME PAGE */
 
 /***********************************/
 
-/* Large device only */
+/*** Large device only ***/
 @media (min-width: 1200px) {
 	/* HEADER */
 	/* END HEADER */
 }
-/* Medium device only */
+
+/*** Medium device only ***/
 @media (min-width: 992px) and (max-width: 1199px) {
 	/* HEADER */
 	/* END HEADER */
 }
-/* Small device only */
+
+/*** Small device only */
 @media (min-width: 768px) and (max-width: 991px) {
 	/* HEADER */
 	/* END HEADER */
 }
-/* Extra Small device only */
+
+/*** Extra Small device only ***/
 @media (max-width: 767px) {
 	/* HEADER */
 	.navbar-brand {
-		padding-top: 10px;
+		padding-top: 0px;
+		margin-left: 15px;
 	}
-	.navbar-brand h1 { /* Company name */
-		padding-top: 10px;
+	.navbar-brand {
+		margin-right: 15px;
+		margin-left: 15px;
+	}
+	#collapsable-nav {
+		padding: 0;
+		z-index: 3;
 	}
 	#collapsable-nav a { /* Collapsed nav menu text: Chicken, Beef, Sushi */
-		font-size: 1.2em;
+		font-size: 1.2rem;
+	}
+	#nav-list {
+		z-index: 4;
 	}
 	/* END HEADER */
+
 	/* HOME PAGE */
-	#menu-tiles {
+	#main-content {
+		margin-top: auto;
+		margin-right: 15px;
+		margin-left: 15px;
+		z-index: 1;
+	}
+	#menu-tiles	{
 		width: 360px;
-		margin: 0 auto 15px;
+		margin-top: 0;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 15px;
 	}
-	/* END HOME PAGE */
-}
-/* Super Extra Small device only */
-@media (max-width: 479px) {
-	/* HEADER */
-	.navbar-brand h1 { /* Company name */
-		padding-top: 5px;
-		font-size: 6vw; /* Responsive font-size unit: 1vw = 1% of viewport width */
-	}
-	/* END HEADER */
-	/* HOME PAGE */
-	#menu-tiles {
-		width: 280px;
-		margin: 0 auto 15pz;
-	}
-	.col-xxs-12 {
-		position: relative;
-		min-height: 1px;
-		padding-right: 15px;
-		padding-left: 15px;
-		float: left;
-		width: 100%;
-	}
-	#title {
-		font-size: 6vW;
-	}
-	#chicken, #beef, #sushi {
-		font-size: 5vw;
+	#tile1, #tile2, #tile3 {
+		padding-right: 30px;
+		padding-left: 30px;
+		z-index: 2;
 	}
 	/* END HOME PAGE */
 }
