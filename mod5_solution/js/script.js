@@ -65,19 +65,12 @@ var switchMenuToActive = function () {
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
 
-// 単に「home-snippet.html」を要求するのではなく、サーバーからすべてのカテゴリを取得するようにする
-// また、サーバーからすべてのカテゴリを受信して処理する"buildAndShowHomeHTML"という別の関数も作成
-//・ランダムなカテゴリを選択
-//・「home-snippet.html」を取得
-//・そのランダムなカテゴリを「home-snippet.html」に挿入, 
-//・そのスニペットをメイン ページ (index.html) に挿入
-
-// STEP 1:
+// [STEP 1]
 // *** start ***
 // On first load, show home view
-showLoading("#main-content");
-$ajaxUtils.sendGetRequest(
-  allCategoriesUrl,buildAndShowHomeHTML,
+showLoading("#main-content"); // アニメーションアイコン
+$ajaxUtils.sendGetRequest(allCategoriesUrl,
+  buildAndShowHomeHTML,
   true);
 });
 // *** finish **
@@ -85,19 +78,12 @@ $ajaxUtils.sendGetRequest(
 // Builds HTML for the home page based on categories array
 // returned from the server.
 function buildAndShowHomeHTML (categories) {
-  $ajaxUtils.sendGetRequest( //1 Load home snippet page
+  $ajaxUtils.sendGetRequest( // Load home snippet page
     homeHtmlUrl,
-    function (homeHtml) {
-      $ajaxUtils.sendGetRequest ( //2 [STEP 2]
-        menuItemsTitleHtml, 
-        function (menuItemsTitleHtml) {
-          switchMenuToActive();
-          var chosenCategoryShortName =　
-          chooseRandomCategory (categories, 
-                                categoriesTitleHtml, 
-                                categoryHtml);
-          insertHtml ("#main-content", chosenCategoryShortName);
-        }, false);
+    function (homeHtml) { // [STEP 2]
+      document.querySelector(
+        "#main-content").innerHTML = homeHtml;
+      
 
       // STEP 3:
       // ・その引数がどのようになる必要があるかを考えます。
@@ -106,11 +92,7 @@ function buildAndShowHomeHTML (categories) {
       //
       // var homeHtmlToInsertIntoMainPage = ....
 
-      dc.loadMenuItems = function (categoryShort) {
-        showLoading("#main-content")
-        $ajaxUtils.sendGetRequest(
-          )
-      }
+      
       // STEP 4: 
 
 
