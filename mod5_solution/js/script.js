@@ -60,16 +60,14 @@ var switchMenuToActive = function () {
 };
 
 
-
-
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
 
-// [STEP 1]
 // *** start ***
 // On first load, show home view
 showLoading("#main-content"); // アニメーションアイコン
-$ajaxUtils.sendGetRequest(allCategoriesUrl,
+$ajaxUtils.sendGetRequest( // [STEP 1]
+  allCategoriesUrl,
   buildAndShowHomeHTML,
   true);
 });
@@ -78,27 +76,17 @@ $ajaxUtils.sendGetRequest(allCategoriesUrl,
 // Builds HTML for the home page based on categories array
 // returned from the server.
 function buildAndShowHomeHTML (categories) {
+
   $ajaxUtils.sendGetRequest( // Load home snippet page
     homeHtmlUrl,
-    function (homeHtml) { // [STEP 2]
-      document.querySelector(
-        "#main-content").innerHTML = homeHtml;
+    function (homeHtml) { 
       
-
-      // STEP 3:
-      // ・その引数がどのようになる必要があるかを考えます。
-      // $dc.loadMenuItems('L')」
-      // ヒント：「home-snippet.html」スニペットに挿入する前に、選択したカテゴリの短縮名を何かで囲む必要あり
-      //
-      // var homeHtmlToInsertIntoMainPage = ....
-
-      
-      // STEP 4: 
-
+      document.querySelector("#main-content").innerHTML = homeHtml;
 
     },
-    false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
+  false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
+
 
 // Given array of category objects, returns a random category object.
 function chooseRandomCategory (categories) {
@@ -110,20 +98,18 @@ function chooseRandomCategory (categories) {
 }
 
 
-
-
-
 // Load the menu categories view
-dc.loadMenuCategories = function () {
+dc.loadMenuCategories = function () { // MENUボタンフック
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
-    allCategoriesUrl,buildAndShowCategoriesHTML);
+    allCategoriesUrl,
+    buildAndShowCategoriesHTML);
 };
 
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
-dc.loadMenuItems = function (categoryShort) {
+dc.loadMenuItems = function (categoryShort) { // SPECIALSボタンフック
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + categoryShort + ".json",
