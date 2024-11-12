@@ -63,6 +63,14 @@ var switchMenuToActive = function () {
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
 
+// [STEP 0]
+// 単に「home-snippet.html」を要求するのではなく、サーバーからすべてのカテゴリを取得するようにする
+// また、サーバーからすべてのカテゴリを受信して処理する"buildAndShowHomeHTML"という別の関数も作成
+  //・ランダムなカテゴリを選択
+  //・「home-snippet.html」を取得
+  //・そのランダムなカテゴリを「home-snippet.html」に挿入, 
+  //・そのスニペットをメイン ページ (index.html) に挿入
+
 // *** start ***
 // On first load, show home view
 showLoading("#main-content"); // アニメーションアイコン
@@ -80,9 +88,29 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest( // Load home snippet page
     homeHtmlUrl,
     function (homeHtml) { 
-      
-      document.querySelector("#main-content").innerHTML = homeHtml;
 
+      // [ STEP 2 ] ここで、「chooseRandomCategory」を呼び出し、取得した「categories」を渡します。
+      // この関数が返すデータの種類と、「chosenCategoryShortName」変数の名前から予想されるデータの種類に注意してください。
+      var chosenCategory = chooseRandomCategory (categories);
+      var chosenCategoryShortName = chosenCategory.short_name;
+
+      // [ STEP 3 ] 「home-snippet.html」の {{randomCategoryShortName}} を、ステップ2 で選択したカテゴリに置き換えます。
+      // そのために既存の「insertProperty」関数を使用
+      // 「insertProperty」関数の使用方法の例については、このコードを参照してください。
+      // Look through this code for an example of how to do use the insertProperty function.
+        // 警告!
+        //「{{randomCategoryShortName}}」の置き換えは、「$dc.loadMenuItems」関数に渡される引数になるため、
+        // 有効な「Javascript構文」になるものを挿入しています。
+        // その引数がどのようになるか考えてください。
+        // たとえば、有効な呼び出しは次のようになります: $dc.loadMenuItems('L') 
+          // ヒント: 「home-snippet.html」に挿入する前に、選択したカテゴリの短縮名を何かで囲む必要があります。
+      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", "'" + chosenCategoryShortName + "'");
+
+      // [ STEP 4 ] ステップ3 で生成された HTML をメイン ページに挿入
+        // そのために既存の「insertHtml」関数を使用 
+        // その方法の例については、このコードを参照してください。
+      insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
+      
     },
   false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
